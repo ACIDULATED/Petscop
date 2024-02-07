@@ -55,14 +55,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
 stretch = true
-stretch_shrink = 3
 
 [node name="Viewport" type="SubViewport" parent="PSXLayer/BlurPostProcess/Viewport/LCDOverlay/Viewport/DitherBanding"]
 handle_input_locally = false
 canvas_item_default_texture_filter = 0
 audio_listener_enable_2d = true
 audio_listener_enable_3d = true
-size = Vector2i(106, 80)
+size = Vector2i(320, 240)
 render_target_update_mode = 4
 
 [node name="Node3D" parent="PSXLayer/BlurPostProcess/Viewport/LCDOverlay/Viewport/DitherBanding/Viewport" instance=ExtResource("5_sauna")]
