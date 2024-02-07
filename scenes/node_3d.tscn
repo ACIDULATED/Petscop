@@ -1,9 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://b1at8d63c7clm"]
+[gd_scene load_steps=15 format=3 uid="uid://b1at8d63c7clm"]
 
 [ext_resource type="Texture2D" uid="uid://dhxiylyk0qjd8" path="res://icon.svg" id="1_57kka"]
 [ext_resource type="Shader" path="res://shaders/psx_unlit_alpha-scissor.gdshader" id="1_85d2f"]
 [ext_resource type="PackedScene" uid="uid://b40lipydi20xn" path="res://scenes/player.tscn" id="3_ttxqa"]
+[ext_resource type="Shader" path="res://shaders/psx_unlit.gdshader" id="4_7hmr4"]
 [ext_resource type="Texture2D" uid="uid://b1ir1inksa4g4" path="res://sprites/grass.png" id="4_dhghc"]
+[ext_resource type="Script" path="res://scripts/interact.gd" id="6_ap2vy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1d2k2"]
 render_priority = 0
@@ -23,14 +25,11 @@ shader_parameter/albedoTex = ExtResource("1_57kka")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gweg2"]
 render_priority = 0
-shader = ExtResource("1_85d2f")
+shader = ExtResource("4_7hmr4")
 shader_parameter/modulate_color = Color(0.658824, 0.658824, 0.658824, 1)
-shader_parameter/uv_scale = Vector2(5, 5)
+shader_parameter/uv_scale = Vector2(100, 100)
 shader_parameter/uv_offset = Vector2(0, 0)
 shader_parameter/uv_pan_velocity = Vector2(0, 0)
-shader_parameter/billboard = false
-shader_parameter/y_billboard = false
-shader_parameter/alpha_scissor = 0.1
 shader_parameter/albedoTex = ExtResource("4_dhghc")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_d5ry1"]
@@ -46,6 +45,10 @@ volumetric_fog_albedo = Color(0, 0, 0, 1)
 volumetric_fog_emission_energy = 385.0
 volumetric_fog_gi_inject = 4.07
 volumetric_fog_anisotropy = -0.85
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fm7lw"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_dbnfj"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -64,9 +67,19 @@ skeleton = NodePath("")
 shape = SubResource("BoxShape3D_pxkni")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(10.8018, 0, 0, 0, 10.8018, 0, 0, 0, 10.8018, 0, -0.486461, 0)
+transform = Transform3D(111.316, 0, 0, 0, 111.316, 0, 0, 0, 111.316, 0, -0.686105, 0)
 material_override = SubResource("ShaderMaterial_gweg2")
 mesh = SubResource("PlaneMesh_d5ry1")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_a8m1c")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.13966, 0, 1.33543)
+script = ExtResource("6_ap2vy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_fm7lw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
+mesh = SubResource("BoxMesh_dbnfj")

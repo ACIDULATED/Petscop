@@ -15,6 +15,10 @@ run/main_scene="res://post_process/pp_stack.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Global="*res://scripts/global.gd"
+
 [display]
 
 window/size/viewport_width=320
@@ -27,4 +31,16 @@ window/vsync/vsync_mode=0
 precision_multiplier={
 "type": "float",
 "value": 1.0
+}
+fog_color={
+"type": "vec4",
+"value": Vector4(0, 0, 0, 0)
+}
+sphere_size={
+"type": "float",
+"value": 5.0
+}
+player_pos={
+"type": "vec3",
+"value": Vector3(0, 0, 0)
 }
