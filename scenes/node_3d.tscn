@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1at8d63c7clm"]
+
+[ext_resource type="Texture2D" uid="uid://dhxiylyk0qjd8" path="res://icon.svg" id="1_57kka"]
+[ext_resource type="Shader" path="res://shaders/psx_unlit_alpha-scissor.gdshader" id="1_85d2f"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1d2k2"]
+render_priority = 0
+shader = ExtResource("1_85d2f")
+shader_parameter/modulate_color = Color(1, 1, 1, 1)
+shader_parameter/uv_scale = Vector2(2, 2)
+shader_parameter/uv_offset = Vector2(0, 0)
+shader_parameter/uv_pan_velocity = Vector2(2, 0)
+shader_parameter/billboard = false
+shader_parameter/y_billboard = false
+shader_parameter/alpha_scissor = 0.1
+shader_parameter/albedoTex = ExtResource("1_57kka")
+
+[sub_resource type="BoxMesh" id="BoxMesh_24ewr"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.843935, 0, -0.536446, -0.438688, 0.575548, -0.690143, 0.30875, 0.817768, 0.485725, 0, 0, -2.74043)
+material_override = SubResource("ShaderMaterial_1d2k2")
+mesh = SubResource("BoxMesh_24ewr")
+skeleton = NodePath("")
