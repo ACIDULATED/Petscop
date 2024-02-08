@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://8uq6ahlweoiu"]
+[gd_scene load_steps=6 format=3 uid="uid://8uq6ahlweoiu"]
 
 [ext_resource type="Texture2D" uid="uid://cimhpx4nkmeoj" path="res://sprites/textbox.png" id="1_3x4gj"]
 [ext_resource type="FontFile" uid="uid://dhgl5wt3unvf0" path="res://sprites/PetscopWide.ttf" id="2_put7j"]
 [ext_resource type="Script" path="res://scripts/textbox.gd" id="3_ub3e3"]
+[ext_resource type="AudioStream" uid="uid://dg520va2oo5ju" path="res://sounds/textboxcontinue.wav" id="4_axjp0"]
+[ext_resource type="AudioStream" uid="uid://dvnbb3g3vo0kc" path="res://sounds/textboxclose.wav" id="5_nud05"]
 
 [node name="Textbox" type="Control"]
 layout_mode = 3
@@ -35,3 +37,11 @@ script = ExtResource("3_ub3e3")
 [node name="Timer" type="Timer" parent="TextureRect/RichTextLabel"]
 wait_time = 0.03
 autostart = true
+
+[node name="Continue" type="AudioStreamPlayer2D" parent="TextureRect/RichTextLabel"]
+stream = ExtResource("4_axjp0")
+autoplay = true
+
+[node name="Close" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(42, 159)
+stream = ExtResource("5_nud05")

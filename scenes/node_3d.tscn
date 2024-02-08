@@ -23,17 +23,6 @@ shader_parameter/albedoTex = ExtResource("1_57kka")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pxkni"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_gweg2"]
-render_priority = 0
-shader = ExtResource("4_7hmr4")
-shader_parameter/modulate_color = Color(0.658824, 0.658824, 0.658824, 1)
-shader_parameter/uv_scale = Vector2(100, 100)
-shader_parameter/uv_offset = Vector2(0, 0)
-shader_parameter/uv_pan_velocity = Vector2(0, 0)
-shader_parameter/albedoTex = ExtResource("4_dhghc")
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_d5ry1"]
-
 [sub_resource type="Environment" id="Environment_a8m1c"]
 background_mode = 1
 ambient_light_energy = 0.0
@@ -49,6 +38,17 @@ volumetric_fog_anisotropy = -0.85
 [sub_resource type="BoxShape3D" id="BoxShape3D_fm7lw"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_dbnfj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gweg2"]
+render_priority = 0
+shader = ExtResource("4_7hmr4")
+shader_parameter/modulate_color = Color(0.658824, 0.658824, 0.658824, 1)
+shader_parameter/uv_scale = Vector2(30, 30)
+shader_parameter/uv_offset = Vector2(0, 0)
+shader_parameter/uv_pan_velocity = Vector2(0, 0)
+shader_parameter/albedoTex = ExtResource("4_dhghc")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_d5ry1"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -66,11 +66,6 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("BoxShape3D_pxkni")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(111.316, 0, 0, 0, 111.316, 0, 0, 0, 111.316, 0, -0.686105, 0)
-material_override = SubResource("ShaderMaterial_gweg2")
-mesh = SubResource("PlaneMesh_d5ry1")
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_a8m1c")
 
@@ -83,3 +78,59 @@ shape = SubResource("BoxShape3D_fm7lw")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
 mesh = SubResource("BoxMesh_dbnfj")
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(10.0446, 0, 0, 0, 10.0446, 0, 0, 0, 10.0446, 0, -0.686105, 0)
+material_override = SubResource("ShaderMaterial_gweg2")
+mesh = SubResource("PlaneMesh_d5ry1")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(10.0446, 0, 0, 0, 10.0446, 0, 0, 0, 10.0446, 0, -0.686105, -19.742)
+material_override = SubResource("ShaderMaterial_gweg2")
+mesh = SubResource("PlaneMesh_d5ry1")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(10.0446, 0, 0, 0, 10.0446, 0, 0, 0, 10.0446, 0, -0.686105, 19.8789)
+material_override = SubResource("ShaderMaterial_gweg2")
+mesh = SubResource("PlaneMesh_d5ry1")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(10.0446, 0, 0, 0, 10.0446, 0, 0, 0, 10.0446, -19.9622, -0.686105, 0)
+material_override = SubResource("ShaderMaterial_gweg2")
+mesh = SubResource("PlaneMesh_d5ry1")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(10.0446, 0, 0, 0, 10.0446, 0, 0, 0, 10.0446, -19.9622, -0.686105, -19.742)
+material_override = SubResource("ShaderMaterial_gweg2")
+mesh = SubResource("PlaneMesh_d5ry1")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(10.0446, 0, 0, 0, 10.0446, 0, 0, 0, 10.0446, -19.9622, -0.686105, 19.8789)
+material_override = SubResource("ShaderMaterial_gweg2")
+mesh = SubResource("PlaneMesh_d5ry1")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(10.0446, 0, 0, 0, 10.0446, 0, 0, 0, 10.0446, 18.331, -0.686105, 0)
+material_override = SubResource("ShaderMaterial_gweg2")
+mesh = SubResource("PlaneMesh_d5ry1")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(10.0446, 0, 0, 0, 10.0446, 0, 0, 0, 10.0446, 18.331, -0.686105, -19.742)
+material_override = SubResource("ShaderMaterial_gweg2")
+mesh = SubResource("PlaneMesh_d5ry1")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(10.0446, 0, 0, 0, 10.0446, 0, 0, 0, 10.0446, 18.331, -0.686105, 19.8789)
+material_override = SubResource("ShaderMaterial_gweg2")
+mesh = SubResource("PlaneMesh_d5ry1")
+skeleton = NodePath("../..")
